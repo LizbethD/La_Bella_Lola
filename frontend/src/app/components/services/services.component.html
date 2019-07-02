@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #serviceForm="ngForm" (ngSubmit)="addService(serviceForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]= "serviceService.selectedService._id">
+            <div class="row">
+              <div class="imput-field col s12">
+                <input type="text" name="paquete" #paquete="ngModel" 
+                [(ngModel)] = "serviceService.selectedService.paquete"
+                placeholder="Ingresar Paquete">
+              </div>
+              <div class="imput-field col s12">
+                <input type="number" name="cantidad" #cantidad="ngModel" 
+                [(ngModel)] = "serviceService.selectedService.cantidad"
+                placeholder="Cantidad de Personas">
+              </div>
+              <div class="imput-field col s12">
+                <input type="date" name="date" #date="ngModel" 
+                [(ngModel)] = "serviceService.selectedService.date"
+                placeholder="Fecha">
+              </div>
+              <div class="imput-field col s12">
+                <input type="text" name="direction" #direction="ngModel" 
+                [(ngModel)] = "serviceService.selectedService.direction"
+                placeholder="Dirección">
+              </div>
+              <div class="card-action">
+                <div class="input-fiel col s12">
+                  <button class="btn orange">Save</button>
+                  <button class="btn right red" (click)="resetForm(serviceForm)">Clean</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>Paquete</th>
+          <th>Personas</th>
+          <th>Fecha</th>
+          <th>Direccion</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of serviceService.services">
+              <td> {{ service.paquete }}</td>
+              <td> {{ service.cantidad }}</td>
+              <td> {{ service.date }}</td>
+              <td> {{ service.direction }}</td>
+              <td>
+                <a (click)="editService(service)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteService(service._id)">
+                    <i class="material-icons">delete</i>
+                  </a>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
