@@ -18,7 +18,7 @@
     "lodash": "^4.17.11",
     "materialize-css": "^1.0.0-rc.2",
     "mongo": "^0.1.0",
-    "mongoose": "^5.5.11",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
